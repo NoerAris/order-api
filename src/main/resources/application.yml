@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: order
+  profiles:
+    active: development
+  jackson:
+    time-zone: Asia/Jakarta
+  h2:
+    console:
+      enabled: true
+  datasource:
+    url: jdbc:h2:mem:dcbapp
+    driver-class-name: org.h2.Driver
+    data-username: sa
+    data-password: passw0rd
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    open-in-view: true
+logging:
+  file: logs/order.log
+  pattern:
+    console: "%clr(%d %-5level %logger : %L - %msg%n)"
+    file: "%d %-5level [%thread] %logger : %L - %msg%n"
+  level:
+    root: info
+    org:
+      springframework:
+        web: info
+server:
+  port: 8083
+  servlet:
+    context-path: /
